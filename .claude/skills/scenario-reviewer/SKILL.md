@@ -1,3 +1,8 @@
+---
+name: scenario-reviewer
+description: Review all scenarios and synthesize their system requirements into a unified systems definition. Run repeatedly to refine the simulation specification.
+---
+
 # Scenario Reviewer
 
 ## Purpose

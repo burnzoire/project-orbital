@@ -1,3 +1,8 @@
+---
+name: scenario-generator
+description: Generate rich player experience scenarios and decompose them into required simulation systems and dependencies. Use when creating new scenarios for the space life simulation.
+---
+
 # Scenario Generator
 
 ## Purpose
