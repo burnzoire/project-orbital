@@ -1,43 +1,45 @@
 # Simulation Systems Definition
 > Last reviewed: 2026-04-10
-> Scenarios analyzed: 9
+> Scenarios analyzed: 10
 
 ## Systems Overview
 | System | Category | Maturity | Scenario Coverage |
 |--------|----------|----------|-------------------|
-| Atmosphere Management | Physical | Developing | cold-habitat-survival, deep-space-transit |
+| Atmosphere Management | Physical | Refined | cold-habitat-survival, deep-space-transit, colony-overseer |
 | Attitude Control | Technical | Developing | zero-g-wound, pirate-ambush |
 | Cargo & Trade | Economic | Draft | ice-miner-blockade |
 | Combat & Weapons | Technical | Draft | pirate-ambush |
 | Communications | Technical | Refined | cold-habitat-survival, ice-miner-blockade, pirate-ambush, station-noir, eva-rescue |
 | Diplomacy & Negotiation | Political | Developing | ice-miner-blockade, colony-food-crisis |
 | Economy & Currency | Economic | Refined | spaceport-crew-hiring, ice-miner-blockade, station-noir, colony-food-crisis |
-| Equipment & Repair | Technical | Refined | cold-habitat-survival, deep-space-transit, pirate-ambush, eva-rescue |
+| Equipment & Repair | Technical | Refined | cold-habitat-survival, deep-space-transit, pirate-ambush, eva-rescue, colony-overseer |
 | EVA & Spacewalk | Technical | Draft | eva-rescue |
 | Faction System | Political | Developing | ice-miner-blockade, colony-food-crisis |
 | Fleet & Ship Movement | Physical | Developing | ice-miner-blockade, pirate-ambush |
 | Fluid Dynamics | Physical | Developing | zero-g-wound, eva-rescue |
-| Food & Water Supply | Biological | Developing | deep-space-transit, colony-food-crisis |
-| Habitat Integrity | Physical | Developing | cold-habitat-survival, zero-g-wound |
+| Food & Water Supply | Biological | Refined | deep-space-transit, colony-food-crisis, colony-overseer |
+| Habitat Integrity | Physical | Refined | cold-habitat-survival, zero-g-wound, colony-overseer |
 | Labor Market | Economic | Draft | spaceport-crew-hiring |
 | Law & Jurisdiction | Political | Draft | station-noir |
 | Medical & Injury | Biological | Refined | zero-g-wound, pirate-ambush, eva-rescue |
 | Navigation & Fuel | Technical | Refined | ice-miner-blockade, deep-space-transit, pirate-ambush, eva-rescue |
-| NPC Identity & Personality | Social | Refined | spaceport-crew-hiring, deep-space-transit, station-noir, colony-food-crisis |
-| Player Health | Biological | Refined | cold-habitat-survival, zero-g-wound, deep-space-transit, pirate-ambush, eva-rescue, colony-food-crisis |
-| Power Grid | Technical | Refined | cold-habitat-survival, zero-g-wound, pirate-ambush, eva-rescue |
+| NPC Identity & Personality | Social | Refined | spaceport-crew-hiring, deep-space-transit, station-noir, colony-food-crisis, colony-overseer |
+| Player Health | Biological | Refined | cold-habitat-survival, zero-g-wound, deep-space-transit, pirate-ambush, eva-rescue, colony-food-crisis, colony-overseer |
+| Power Grid | Technical | Refined | cold-habitat-survival, zero-g-wound, pirate-ambush, eva-rescue, colony-overseer |
 | Reputation & Trust | Social | Refined | spaceport-crew-hiring, ice-miner-blockade, station-noir, colony-food-crisis |
 | Rotational Gravity | Physical | Developing | zero-g-wound, eva-rescue |
 | Security & Threat | Political | Refined | ice-miner-blockade, pirate-ambush, station-noir, colony-food-crisis |
 | Sensors & Scanning | Technical | Developing | deep-space-transit, pirate-ambush, eva-rescue |
 | Ship Crewing | Social | Developing | spaceport-crew-hiring, deep-space-transit |
-| Social Dynamics | Social | Refined | spaceport-crew-hiring, deep-space-transit, colony-food-crisis |
-| Station Administration | Political | Refined | ice-miner-blockade, station-noir, colony-food-crisis |
+| Social Dynamics | Social | Refined | spaceport-crew-hiring, deep-space-transit, colony-food-crisis, colony-overseer |
+| Station Administration | Political | Refined | ice-miner-blockade, station-noir, colony-food-crisis, colony-overseer |
 | Station Services & Infrastructure | Technical | Developing | spaceport-crew-hiring, station-noir |
-| Thermal Regulation | Physical | Draft | cold-habitat-survival |
-| Time Pressure | Technical | Refined | spaceport-crew-hiring, ice-miner-blockade, deep-space-transit, colony-food-crisis |
+| Surface Environment | Physical | Draft | colony-overseer |
+| Task & Workforce Management | Technical | Draft | colony-overseer |
+| Thermal Regulation | Physical | Developing | cold-habitat-survival, colony-overseer |
+| Time Pressure | Technical | Refined | spaceport-crew-hiring, ice-miner-blockade, deep-space-transit, colony-food-crisis, colony-overseer |
 
-**Summary**: 31 systems — 6 Draft, 12 Developing, 13 Refined, 0 Final
+**Summary**: 33 systems — 7 Draft, 9 Developing, 17 Refined, 0 Final
 
 ---
 
@@ -45,7 +47,7 @@
 
 ### Atmosphere Management
 - **Category**: Physical
-- **Maturity**: Developing
+- **Maturity**: Refined
 - **Purpose**: Simulates breathable air composition, recycling, scrubbing, and environmental quality within enclosed spaces. Covers O2/CO2 balance, pressure maintenance, humidity, trace contaminant buildup, leak management, and long-duration air quality degradation.
 - **Key State Variables**:
   - `o2_level`: float (%) — Oxygen concentration per compartment
@@ -66,7 +68,7 @@
   - Stale air complaints from crew NPCs
   - Condensation on surfaces from humidity issues
   - Filter replacement maintenance prompts
-- **Exercised By**: cold-habitat-survival, deep-space-transit
+- **Exercised By**: cold-habitat-survival, deep-space-transit, colony-overseer
 
 ### Attitude Control
 - **Category**: Technical
@@ -235,7 +237,7 @@
   - Sparks/smoke/venting visual cues for active damage
   - Repair time countdowns
   - Glove dexterity warnings during EVA repairs
-- **Exercised By**: cold-habitat-survival, deep-space-transit, pirate-ambush, eva-rescue
+- **Exercised By**: cold-habitat-survival, deep-space-transit, pirate-ambush, eva-rescue, colony-overseer
 
 ### EVA & Spacewalk
 - **Category**: Technical
@@ -331,7 +333,7 @@
 
 ### Food & Water Supply
 - **Category**: Biological
-- **Maturity**: Developing
+- **Maturity**: Refined
 - **Purpose**: Simulates production, storage, distribution, and consumption of food and water. Covers individual production sources (hydroponics, protein vats, greenhouses), total reserves as calorie/day countdowns, rationing, spoilage, contamination, nutritional quality, and the physiological and social effects of scarcity.
 - **Key State Variables**:
   - `production_sources`: map (source → capacity/health) — Individual food production systems
@@ -356,11 +358,11 @@
   - Water reserves and recycler status
   - Crew complaints about food quality
   - Black market food price tracking
-- **Exercised By**: deep-space-transit, colony-food-crisis
+- **Exercised By**: deep-space-transit, colony-food-crisis, colony-overseer
 
 ### Habitat Integrity
 - **Category**: Physical
-- **Maturity**: Developing
+- **Maturity**: Refined
 - **Purpose**: Simulates the structural condition of habitats, stations, and ship hulls — including seals, compartments, radiation shielding, and stress tolerance. Covers both static damage (micrometeorites, debris) and dynamic stress (spin loads, impacts, emergency maneuvers).
 - **Key State Variables**:
   - `hull_integrity`: map (section → float 0-1) — Structural health per section
@@ -375,7 +377,7 @@
   - Breach alarms and compartment isolation prompts
   - Structural warnings during spin-up or maneuvers
   - Deformation visible at extreme stress
-- **Exercised By**: cold-habitat-survival, zero-g-wound
+- **Exercised By**: cold-habitat-survival, zero-g-wound, colony-overseer
 
 ### Labor Market
 - **Category**: Economic
@@ -506,7 +508,7 @@
   - NPCs contradicting each other's stories
   - Stress responses emerging over sustained scenarios
   - Background revealed through conversation and observation
-- **Exercised By**: spaceport-crew-hiring, deep-space-transit, station-noir, colony-food-crisis
+- **Exercised By**: spaceport-crew-hiring, deep-space-transit, station-noir, colony-food-crisis, colony-overseer
 
 ### Player Health
 - **Category**: Biological
@@ -537,7 +539,7 @@
   - Hunger and thirst indicators
   - Radiation dosimeter
   - Incapacitation/death at critical thresholds
-- **Exercised By**: cold-habitat-survival, zero-g-wound, deep-space-transit, pirate-ambush, eva-rescue, colony-food-crisis
+- **Exercised By**: cold-habitat-survival, zero-g-wound, deep-space-transit, pirate-ambush, eva-rescue, colony-food-crisis, colony-overseer
 
 ### Power Grid
 - **Category**: Technical
@@ -563,7 +565,7 @@
   - Brownout flicker effects
   - System shutdown notifications when power is pulled
   - Load management interface for prioritizing subsystems
-- **Exercised By**: cold-habitat-survival, zero-g-wound, pirate-ambush, eva-rescue
+- **Exercised By**: cold-habitat-survival, zero-g-wound, pirate-ambush, eva-rescue, colony-overseer
 
 ### Reputation & Trust
 - **Category**: Social
@@ -722,7 +724,7 @@
   - Rumor mill spreading player actions
   - Visible signs of social breakdown or solidarity
   - Community gathering events
-- **Exercised By**: spaceport-crew-hiring, deep-space-transit, colony-food-crisis
+- **Exercised By**: spaceport-crew-hiring, deep-space-transit, colony-food-crisis, colony-overseer
 
 ### Station Administration
 - **Category**: Political
@@ -751,7 +753,7 @@
   - Public unrest events when sentiment drops
   - Legitimacy erosion indicators
   - Opportunities to influence or replace leadership
-- **Exercised By**: ice-miner-blockade, station-noir, colony-food-crisis
+- **Exercised By**: ice-miner-blockade, station-noir, colony-food-crisis, colony-overseer
 
 ### Station Services & Infrastructure
 - **Category**: Technical
@@ -783,9 +785,58 @@
   - Infrastructure breakdowns creating opportunities or dangers
 - **Exercised By**: spaceport-crew-hiring, station-noir
 
-### Thermal Regulation
+### Surface Environment
 - **Category**: Physical
 - **Maturity**: Draft
+- **Purpose**: Simulates the conditions on a planetary or lunar surface that affect outdoor work — regolith dust, radiation, temperature extremes, low gravity, atmospheric composition (if any), and daylight/darkness cycles. Determines EVA windows, work speed, equipment fouling rates, and the physical cost of surface operations.
+- **Key State Variables**:
+  - `dust_accumulation_rate`: float — Rate at which regolith coats equipment (esp. solar panels)
+  - `surface_temperature`: float (°C) — Current exterior temperature
+  - `radiation_level`: float (mSv/hr) — Surface radiation exposure rate
+  - `daylight_cycle`: schedule — Light/dark periods affecting solar power and EVA safety
+  - `dust_storm_probability`: float (0-1) — Chance of dust event degrading visibility and equipment
+  - `gravity_level`: float (g) — Surface gravity affecting work speed, fatigue, and equipment
+  - `traverse_time`: map (location pair → minutes) — Travel time between outdoor work sites
+  - `atmosphere`: data — Surface atmospheric composition and pressure (if any)
+- **Player-Facing Effects**:
+  - Surface conditions panel showing temperature, radiation, dust status
+  - EVA window availability indicator
+  - Dust accumulation forecast for solar panels
+  - Radiation warnings for prolonged surface work
+  - Traverse time estimates between outdoor sites
+  - "Conditions safe for EVA" / "EVA not recommended" status
+  - Dust storm alerts
+- **Exercised By**: colony-overseer
+
+### Task & Workforce Management
+- **Category**: Technical
+- **Maturity**: Draft
+- **Purpose**: Simulates the assignment, scheduling, and tracking of work tasks across a population with limited personnel, varying skills, and competing priorities. The core management system — the player's primary interface for running a colony, station, or ship as an overseer. Tracks task queues, worker assignments, skill matching, progress, opportunity costs, and the cascading effects of pulling workers from one task to address another.
+- **Key State Variables**:
+  - `task_queue`: list — Prioritized tasks with urgency, required skills, estimated duration, personnel count
+  - `worker_pool`: list — Available personnel with current assignment, fatigue, skill certifications, interpersonal flags
+  - `task_progress`: map (task → float 0-1) — Per-task completion percentage
+  - `quality_modifier`: map (task → float) — Quality of work based on skill match of assigned worker
+  - `task_dependencies`: graph — Tasks that must finish before others can start
+  - `opportunity_cost`: map (task → list) — What's degrading while resources are allocated elsewhere
+  - `shift_schedule`: data — Work/rest rotation for all personnel
+  - `overtime_accumulated`: map (NPC → float hours) — Hours worked beyond normal shifts
+  - `abandonment_penalty`: map (task → effect) — Consequences of pulling workers mid-task
+- **Player-Facing Effects**:
+  - Task board interface showing all active/pending tasks with urgency color coding
+  - Drag-and-drop crew assignment with skill-match indicators
+  - Estimated completion times updating based on who's assigned
+  - Warning flags when unqualified personnel are assigned
+  - Degradation alerts for unattended tasks
+  - Shift schedule overview with overtime warnings
+  - "What happens if I delay this" projection tooltips
+  - Opportunity cost tracker showing what's getting worse while you fix something else
+  - Task abandonment warnings when reassigning mid-repair
+- **Exercised By**: colony-overseer
+
+### Thermal Regulation
+- **Category**: Physical
+- **Maturity**: Developing
 - **Purpose**: Simulates heat generation, retention, transfer, and loss within enclosed spaces. Covers heaters, radiators, insulation, thermal bleed to vacuum, and the thermal consequences of power loss.
 - **Key State Variables**:
   - `ambient_temperature`: map (compartment → float °C) — Temperature per area
@@ -800,7 +851,7 @@
   - Numbness and hypothermia effects on player
   - Thermostat/temperature displays on panels
   - Heat shimmer in overheated areas
-- **Exercised By**: cold-habitat-survival
+- **Exercised By**: cold-habitat-survival, colony-overseer
 
 ### Time Pressure
 - **Category**: Technical
@@ -827,7 +878,7 @@
   - Faction ultimatum deadlines
   - Contract deadline indicators
   - Daily situation briefings in crisis scenarios
-- **Exercised By**: spaceport-crew-hiring, ice-miner-blockade, deep-space-transit, colony-food-crisis
+- **Exercised By**: spaceport-crew-hiring, ice-miner-blockade, deep-space-transit, colony-food-crisis, colony-overseer
 
 ---
 
@@ -850,17 +901,20 @@
 - Fluid Dynamics --> EVA & Spacewalk: fluid behavior in/around suits governed by micro-g EVA environment
 - Fluid Dynamics --> Rotational Gravity: fluid behavior determined by current gravity level
 - Food & Water Supply --> Equipment & Repair: water recycler and food storage require functioning hardware
+- Food & Water Supply --> Power Grid: greenhouses need powered lighting/climate; water rigs need powered pumps
 - Food & Water Supply --> Station Administration: distribution policies set and enforced by governance
 - Labor Market --> NPC Identity & Personality: candidates must exist as simulated NPCs
 - Law & Jurisdiction --> Station Administration: legal authority flows from governance charter
 - Navigation & Fuel --> Rotational Gravity: docking trajectories must account for station spin
 - Navigation & Fuel --> Ship Crewing: course corrections and burns require a qualified pilot
+- Power Grid --> Surface Environment: solar panel output depends on dust accumulation and daylight cycle
 - Rotational Gravity --> Attitude Control: spin-up requires thruster compensation
 - Rotational Gravity --> Power Grid: spin motor requires electrical power
 - Security & Threat --> Law & Jurisdiction: ROE, detention authority, evidentiary standards defined by legal framework
 - Security & Threat --> Station Administration: security operates under administrative authority
 - Ship Crewing --> NPC Identity & Personality: crew members are persistent NPCs
 - Social Dynamics --> NPC Identity & Personality: interpersonal simulation requires personality data
+- Task & Workforce Management --> NPC Identity & Personality: task assignments require worker skills, certifications, fatigue, and interpersonal constraints
 - Station Administration --> Economy & Currency: governance constrained by budget
 - Station Administration --> Security & Threat: governance requires enforcement capability
 - Thermal Regulation --> Power Grid: heaters and radiators require electrical power
@@ -873,8 +927,10 @@
 - Communications ~~> Rotational Gravity: station rotation creates periodic line-of-sight dropout
 - Economy & Currency ~~> Food & Water Supply: food scarcity drives price inflation and black market emergence
 - Economy & Currency ~~> Station Services & Infrastructure: black market operates within station infrastructure
+- Equipment & Repair ~~> NPC Identity & Personality: repair quality depends on skill match of assigned worker
 - Equipment & Repair ~~> Player Health: fatigued or injured player repairs more slowly
 - Equipment & Repair ~~> Power Grid: repair tools and diagnostics need power
+- Food & Water Supply ~~> Thermal Regulation: greenhouse crops are temperature-sensitive; thermal loss causes crop stress
 - Faction System ~~> Economy & Currency: faction grievances often have economic roots
 - Faction System ~~> Food & Water Supply: hunger and distribution unfairness drive faction formation
 - Faction System ~~> Reputation & Trust: trust between factions affects negotiation willingness
@@ -899,6 +955,7 @@
 - Player Health ~~> Food & Water Supply: player nutrition and hydration affect condition
 - Player Health ~~> Medical & Injury: untreated wounds degrade health
 - Player Health ~~> Ship Crewing: player taking extra shifts increases fatigue
+- Player Health ~~> Task & Workforce Management: player doing field work accumulates fatigue and loses oversight capability
 - Player Health ~~> Thermal Regulation: prolonged cold causes hypothermia
 - Security & Threat ~~> Diplomacy & Negotiation: escalation level affects security posture
 - Security & Threat ~~> Faction System: security loyalties may split across factions
@@ -912,7 +969,11 @@
 - Social Dynamics ~~> Food & Water Supply: meal quality and rationing affect morale and tension
 - Social Dynamics ~~> Ship Crewing: overwork and unfair shifts breed resentment
 - Station Administration ~~> Economy & Currency: corruption motivated and evidenced by financial flows
+- Social Dynamics ~~> Task & Workforce Management: interpersonal conflicts constrain crew pairing; morale affects task acceptance
+- Station Administration ~~> Social Dynamics: leadership legitimacy depends on crew confidence
 - Station Services & Infrastructure ~~> Station Administration: access permissions set by administration
+- Task & Workforce Management ~~> Social Dynamics: perceived unfairness in assignments degrades morale; overtime breeds resentment
+- Task & Workforce Management ~~> Time Pressure: task priority is driven by degradation timers
 - Thermal Regulation ~~> Habitat Integrity: poor insulation increases thermal bleed
 - Time Pressure ~~> Economy & Currency: costs accumulate over time
 - Time Pressure ~~> Food & Water Supply: reserve depletion rate sets urgency
@@ -947,6 +1008,10 @@
 - Sensors & Scanning <-> Security & Threat <-> Fleet & Ship Movement: Better data improves threat assessment; accurate threats inform evasion; evasion changes sensor geometry
 - Ship Crewing <-> Social Dynamics: Overworked crew become hostile; hostile crew perform worse; others pick up slack; everyone's workload increases
 - Time Pressure <-> Faction System <-> Diplomacy & Negotiation: Shrinking reserves increase urgency; urgent factions make harder demands; failed negotiations waste time
+- Task & Workforce Management <-> NPC Identity & Personality <-> Social Dynamics: Overtime/unfamiliar tasks increase fatigue and lower morale; low morale reduces work quality; lower quality means longer tasks; longer tasks mean more overtime
+- Task & Workforce Management <-> Time Pressure <-> Equipment & Repair: Multiple systems degrade on independent timers; fixing one pauses its timer but others keep ticking; pulling workers mid-repair wastes progress and may worsen the abandoned system
+- Player Health <-> Task & Workforce Management <-> Station Administration: Player doing field work is effective at one task but loses oversight; colony runs worse without coordination; staying at desk means one fewer pair of hands on critical tasks
+- Food & Water Supply <-> Thermal Regulation <-> Power Grid: Crops need stable temperature; temperature needs power; power is failing; crop loss threatens food and morale; low morale threatens workforce; workforce determines if power gets fixed
 - Time Pressure <-> Food & Water Supply <-> Player Health: Dwindling supplies force rationing; rationing degrades health; degraded crew works slower; slower work extends timelines
 
 ---
@@ -960,22 +1025,24 @@ The following systems appear in only 1 scenario:
 - **EVA & Spacewalk** — only eva-rescue
 - **Labor Market** — only spaceport-crew-hiring
 - **Law & Jurisdiction** — only station-noir
-- **Thermal Regulation** — only cold-habitat-survival
+- **Surface Environment** — only colony-overseer
+- **Task & Workforce Management** — only colony-overseer (but this is arguably the most important new system — it needs stress-testing across ship, station, and colony scales)
 
 ### Potential Missing Systems
 Systems implied by the scenarios but not yet explicitly defined:
 - **Inventory & Personal Equipment** — Players carry tools, medical supplies, weapons, EVA suits, data slates. Multiple scenarios reference "available tools" or "medical supplies remaining" but no system tracks personal inventory as a whole.
 - **Orbital Mechanics / Astrodynamics** — Navigation & Fuel covers route planning, but the underlying orbital mechanics (transfer windows, gravity assists, orbital periods, planetary positions) that determine what routes are even possible are not modeled.
-- **Morale & Psychology (Player)** — Player Health tracks physical state, but several scenarios imply psychological effects (stress-induced dialogue options, irritability, decision-making impairment) that go beyond physical health.
 - **Stealth & Detection** — Sensors & Scanning covers detection, but no system explicitly models a ship's ability to run dark, reduce signatures, or hide — the pirate ambush scenario implies this strongly.
-- **AI & Automation** — No scenario has yet explored automated systems, drones, or AI crew substitutes — which would stress Ship Crewing, Equipment & Repair, and raise ethical/trust questions.
+- **AI & Automation** — No scenario has yet explored automated systems, drones, or AI crew substitutes — which would stress Ship Crewing, Task & Workforce Management, Equipment & Repair, and raise ethical/trust questions.
+- **Terraforming / Environmental Engineering** — Colony-overseer mentions a terraforming colony, but no system yet models the long-term environmental transformation process (atmospheric processing, soil creation, biome establishment).
 
 ### Incomplete Dependency Chains
 - **Medical & Injury → ??? → Inventory**: Treatment requires medical supplies, but no inventory system tracks what's available beyond scenario-specific mentions
-- **Ship Crewing → ??? → Ship Systems**: Crew efficiency should directly modify technical system performance (power, navigation, sensors) but this link is only soft-coded through vacancy penalties
+- **Task & Workforce Management → ??? → Ship Crewing**: Both systems manage personnel assignment, but at different scales (colony-wide vs. ship roles). They likely need a shared abstraction or explicit bridge.
 - **Faction System → NPC Identity & Personality**: Factions have members but the link between individual NPC loyalty shifts and faction cohesion changes isn't fully formalized
 - **Law & Jurisdiction → ??? → other scenarios**: Currently only exercised in station-noir; needs to connect to trade law (Cargo & Trade), salvage law (EVA), and labor law (Labor Market)
 - **Combat & Weapons → ??? → Habitat Integrity**: Ship combat should damage habitat structure, but this dependency isn't captured since no scenario combines both systems yet
+- **Surface Environment → ??? → other physical systems**: Dust, radiation, and temperature affect many systems (Equipment & Repair, Player Health, EVA & Spacewalk) but these cross-links aren't formalized yet
 
 ### Recommended Next Scenarios
 To stress-test remaining gaps:
@@ -984,8 +1051,8 @@ To stress-test remaining gaps:
 
 2. **Ship-to-ship boarding action** — Pirates or military board your vessel (or you board theirs). Would stress: Combat & Weapons, EVA & Spacewalk, Habitat Integrity, Medical & Injury, Equipment & Repair, Security & Threat. Would connect Combat → Habitat Integrity and stress EVA in a combat context.
 
-3. **Mining colony labor dispute** — Workers organizing, striking, negotiating. Would stress: Labor Market, Faction System, Law & Jurisdiction, Economy & Currency, Diplomacy & Negotiation, Social Dynamics. Would connect Labor Market to political systems.
+3. **Station commander's day** — Running a busy station with competing docking requests, maintenance schedules, and diplomatic visitors. Would stress: Task & Workforce Management at station scale, Station Administration, Station Services & Infrastructure, Economy & Currency, Diplomacy & Negotiation. Critical for proving Task & Workforce Management works beyond the colony context.
 
-4. **Thermal crisis on a sun-grazing station** — A station on a close solar orbit with failing heat management. Would stress: Thermal Regulation, Atmosphere Management, Equipment & Repair, Power Grid, Habitat Integrity. Would give Thermal Regulation a second scenario with different failure modes (overheating vs. freezing).
+4. **Ship captain managing a long patrol** — Commanding a crewed vessel on an extended patrol route. Would stress: Task & Workforce Management at ship scale, Ship Crewing, Navigation & Fuel, Sensors & Scanning, Equipment & Repair, Social Dynamics. Bridges Task & Workforce Management with Ship Crewing.
 
-5. **Automated ship malfunction** — An AI-crewed cargo vessel goes off-course and must be intercepted and boarded. Would stress: Ship Crewing (absence of crew), Sensors & Scanning, Navigation & Fuel, Equipment & Repair, EVA & Spacewalk. Would surface **AI & Automation**.
+5. **Mining colony labor dispute** — Workers organizing, striking, negotiating. Would stress: Labor Market, Faction System, Law & Jurisdiction, Economy & Currency, Diplomacy & Negotiation, Task & Workforce Management. Would connect Labor Market to political systems and test workforce management under political constraints.
