@@ -18,6 +18,8 @@ CogEx's contract makes it clear that non-performance forfeits the body, creating
 
 While the player is solving contract problems (each of which is gameplay), they also have opportunities to set in place a social and informational network of small contacts, asset caches, little debts owed, favours, secrets, access etc (a little bit of Crusader Kings?). They are setting up to heist their own identity with a social and economic Rube Goldberg machine.
 
+The player can cooperate with other CogEx troubleshooters to solve problems. They will also secretly collaborate with them to all escape together. 
+
 ## Game Design Principles
 
 - You are not the chosen one
@@ -33,3 +35,4 @@ While the player is solving contract problems (each of which is gameplay), they 
 ## Ideas
 
 - as an overarching story, the player is looking for subtle ways they can use their contracts to set things in play for larger goals. For example: when solving a problem for (as) a CEO, they might make a small, unnoticeable hire that they can contact later for a favour. They might learn that someone is going to manipulate a stock price, and use a fake identity established on a previous contract to invest some money set aside in a different previous contract to take advantage of the manipulation. 
+- The Oceans Eleven thing would be a great "game over" event, where once all the pieces are in play, you have to execute your perfect plan with your crew of troubleshooters you've enlisted along the way
