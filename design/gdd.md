@@ -18,3 +18,7 @@ They exist in a grey legal area where they don't have the citizenship status to 
 - tone is a mashup of Firefly, The Expanse, Rimworld and the Paranoia RPG
 - progression, but impediments to long-term progression that become increasingly difficult to overcome
 - client-server, 1..n clients
+
+## Stack
+
+- Open, early days. Thinking is a Python+MyPy dedicated server which is somewhat client-agnostic at least in early dev. Scale from text UI to 2D sidescroller.
