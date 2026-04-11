@@ -32,7 +32,12 @@ The player can cooperate with other CogEx troubleshooters to solve problems. The
 
 - Open, early days. Thinking is a Python+MyPy dedicated server which is somewhat client-agnostic at least in early dev. Scale from text UI to 2D sidescroller.
 
+- conversational interaction with npcs via local llm agents. these have their own goals, motivations and gameplay abilities, items and so on that they can give to/use with the player
+
 ## Ideas
 
 - as an overarching story, the player is looking for subtle ways they can use their contracts to set things in play for larger goals. For example: when solving a problem for (as) a CEO, they might make a small, unnoticeable hire that they can contact later for a favour. They might learn that someone is going to manipulate a stock price, and use a fake identity established on a previous contract to invest some money set aside in a different previous contract to take advantage of the manipulation. 
+
 - The Oceans Eleven thing would be a great "game over" event, where once all the pieces are in play, you have to execute your perfect plan with your crew of troubleshooters you've enlisted along the way
+
+- what does the solar system economy simulator actually do to impact the gameplay? does it create opportunities for the player to exploit for profit while in a contract body?
