@@ -41,3 +41,5 @@ The player can cooperate with other CogEx troubleshooters to solve problems. The
 - The Oceans Eleven thing would be a great "game over" event, where once all the pieces are in play, you have to execute your perfect plan with your crew of troubleshooters you've enlisted along the way
 
 - what does the solar system economy simulator actually do to impact the gameplay? does it create opportunities for the player to exploit for profit while in a contract body?
+
+- the beginning of a thought about LLM interaction. Like if there was a possible arc outcome that the player didn't achieve in a contract, the engine can interrogate the agents and ask why they didn't convince them or what they missed. That can form the basis of hints, e.g. at the end of a contract, back in your "holding cell" server: "it occurs to you that Genevieve the receptionist complimented your hat and seemed disappointed that you didn't compliment her back. You might have missed an opportunity to get Boris's commnet code there." This trains the player on the sorts of things they should be looking out for. 
